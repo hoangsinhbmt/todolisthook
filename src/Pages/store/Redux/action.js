@@ -1,4 +1,4 @@
-import { ADD_JOB, CHECKED_JOB, DELETE_JOB, SET_JOB } from "../constant/constant";
+import { ADD_JOB, CHECKED_JOB, DELETE_JOB, SET_JOB } from "./constant";
 
 export const setJob = (payload) => {
   return {
