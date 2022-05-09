@@ -4,6 +4,7 @@ import { UseStore, actions } from "../store";
 export default function Todo() {
   const [state, dispatch] = UseStore();
   const { job, jobs } = state;
+
   return (
     <div>
       <div>
@@ -11,8 +12,11 @@ export default function Todo() {
           {jobs.map((job, index) => (
             <li key={index}>
               <div className="flex mb-4 items-center">
-                <p className="w-full text-grey-darkest">{job}</p>
-                <button className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white text-green-500 border-green-500 hover:bg-green-500">
+                <p className="w-full text-grey-darkest">{job.name}</p>
+                <button
+                  className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white text-green-500 border-green-500 hover:bg-green-500"
+                  onClick={() => dispatch(actions.doneJob(index))}
+                >
                   Done
                 </button>
                 <button

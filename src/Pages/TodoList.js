@@ -3,6 +3,7 @@ import AddTodo from "./components/AddTodo";
 import { addJob, deleteJob, setJob } from "./store/Redux/action";
 import { UseStore } from "./store";
 import Todo from "./components/Todo";
+import DoneJob from "./components/DoneJob";
 
 //init state
 
@@ -12,6 +13,7 @@ export default function TodoList() {
       <div className="bg-white rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
         <AddTodo/>
           <Todo/>
+          <DoneJob/>
       </div>
     </div>
   );
