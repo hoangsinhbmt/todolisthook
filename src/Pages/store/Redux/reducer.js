@@ -4,28 +4,29 @@ import {
   DELETE_JOB,
   DONE_JOB,
   SET_JOB,
+  UN_DONE_JOB,
 } from "./constant";
 
 const initState = {
   job: "",
   jobs: [
     {
-      name: "task 1",
+      name: "Rửa Bát",
       id: 1,
       status: true,
     },
     {
-      name: "task 2",
+      name: "Giặt đồ",
       id: 2,
       status: false,
     },
     {
-      name: "task 3",
+      name: "Lau Nhà",
       id: 3,
       status: true,
     },
     {
-      name: "task 4",
+      name: "Học Bàigi",
       id: 4,
       status: false,
     },
@@ -82,6 +83,18 @@ const reducer = (state, action) => {
         ...state,
         doneJob: doneJob,
         jobs: undoneJob,
+      };
+      break;
+    case UN_DONE_JOB:
+      const doneJob2 = [...state.doneJob];
+      const undoneJob2 = [...state.jobs];
+      let done = doneJob2.splice(action.payload, 1);
+      let done1 = done[0];
+      undoneJob2.push(done1);
+      newState = {
+        ...state,
+        doneJob: doneJob2,
+        jobs: undoneJob2,
       };
       break;
     default:

@@ -13,11 +13,11 @@ export default function DoneJob() {
             <div className="flex mb-4 items-center">
               <p className="w-full text-grey-darkest">{job.name}</p>
               <button
-                  className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white text-gray-500 border-gray-500 hover:bg-gray-500"
-                  onClick={() => dispatch(actions.doneJob(index))}
-                >
-                  UnDone
-                </button>
+                className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white text-gray-500 border-gray-500 hover:bg-gray-500"
+                onClick={() => dispatch(actions.unDoneJob(index))}
+              >
+                UnDone
+              </button>
               <button
                 className="flex-no-shrink p-2 ml-2 border-2 rounded text-red-500 border-red-500 hover:text-white hover:bg-red-500 transition"
                 onClick={() => dispatch(actions.deleteDoneJob(index))}

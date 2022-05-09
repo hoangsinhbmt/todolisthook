@@ -1,4 +1,4 @@
-import { ADD_JOB, DELETE_DONE_JOB, DELETE_JOB, DONE_JOB, SET_JOB } from "./constant";
+import { ADD_JOB, DELETE_DONE_JOB, DELETE_JOB, DONE_JOB, SET_JOB, UN_DONE_JOB } from "./constant";
 
 export const setJob = (payload) => {
   return {
@@ -27,6 +27,12 @@ export const deleteDoneJob = (payload) => {
 export const doneJob = (payload)=>{
   return{
     type: DONE_JOB,
+    payload,
+  }
+}
+export const unDoneJob = (payload)=>{
+  return{
+    type: UN_DONE_JOB,
     payload,
   }
 }
