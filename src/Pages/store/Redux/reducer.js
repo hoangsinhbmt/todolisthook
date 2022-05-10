@@ -1,38 +1,44 @@
+import LocalSer from "../SaveToLocal";
 import {
   ADD_JOB,
   DELETE_DONE_JOB,
   DELETE_JOB,
   DONE_JOB,
+  SAVE_LIST,
   SET_JOB,
+  UNSAVE_LIST,
   UN_DONE_JOB,
 } from "./constant";
 
-const initState = {
-  job: "",
-  jobs: [
-    {
-      name: "Rửa Bát",
-      id: 1,
-      status: true,
-    },
-    {
-      name: "Giặt đồ",
-      id: 2,
-      status: false,
-    },
-    {
-      name: "Lau Nhà",
-      id: 3,
-      status: true,
-    },
-    {
-      name: "Học Bàigi",
-      id: 4,
-      status: false,
-    },
-  ],
-  doneJob: [],
-};
+const initState = LocalSer.getLocal() ? LocalSer.getLocal() : (
+  {
+    job: "",
+    jobs: [
+      {
+        name: "Rửa Bát",
+        id: 1,
+        status: true,
+      },
+      {
+        name: "Giặt đồ",
+        id: 2,
+        status: false,
+      },
+      {
+        name: "Lau Nhà",
+        id: 3,
+        status: true,
+      },
+      {
+        name: "Học Bài",
+        id: 4,
+        status: false,
+      },
+    ],
+    doneJob: [],
+  }
+)
+
 const reducer = (state, action) => {
   let newState;
   switch (action.type) {
@@ -97,6 +103,14 @@ const reducer = (state, action) => {
         jobs: undoneJob2,
       };
       break;
+    case SAVE_LIST:
+          LocalSer.setLocal(state);
+          newState = {...state};
+          break;
+    case UNSAVE_LIST:
+          LocalSer.deleLocal();
+          newState = { ...state };
+          break;
     default:
       throw new Error("Invalid action");
   }

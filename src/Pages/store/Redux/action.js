@@ -1,4 +1,4 @@
-import { ADD_JOB, DELETE_DONE_JOB, DELETE_JOB, DONE_JOB, SET_JOB, UN_DONE_JOB } from "./constant";
+import { ADD_JOB, DELETE_DONE_JOB, DELETE_JOB, DONE_JOB, SAVE_LIST, SET_JOB, UNSAVE_LIST, UN_DONE_JOB } from "./constant";
 
 export const setJob = (payload) => {
   return {
@@ -36,4 +36,11 @@ export const unDoneJob = (payload)=>{
     payload,
   }
 }
+export const saveTasks = () => ({
+  type: SAVE_LIST
+})
+
+export const unsaveTask = () => ({
+  type: UNSAVE_LIST,
+})
 
